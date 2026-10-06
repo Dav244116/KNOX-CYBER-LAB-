@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <title>KNOX CYBER LAB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="scanlines"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">K</div>
+      <div>
+        <h1>KNOX CYBER LAB</h1>
+        <span>SECURITY TRAINING SIMULATOR</span>
+      </div>
+    </div>
+
+    <div class="status">
+      <span class="dot"></span>
+      SYSTEM ONLINE
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">WELCOME, OPERATIVE</p>
+        <h2>ENTER THE<br><span>CYBER LAB</span></h2>
+        <p class="description">
+          Learn cybersecurity through simulated missions,
+          challenges and defensive security exercises.
+        </p>
+
+        <button class="start-btn" id="startBtn">
+          START TRAINING
+        </button>
+      </div>
+
+      <div class="terminal-preview">
+        <div class="terminal-head">
+          <span></span>
+          <span></span>
+          <span></span>
+          <b>knox@cyberlab:~</b>
+        </div>
+
+        <div class="terminal-body" id="heroTerminal">
+          <p>&gt; Initializing KNOX Cyber Lab...</p>
+          <p>&gt; Loading security modules...</p>
+          <p>&gt; Checking training environment...</p>
+          <p class="success">&gt; STATUS: READY</p>
+          <p>&gt; Awaiting operative...</p>
+          <p class="cursor">█</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard" id="dashboard">
+
+      <div class="stats">
+
+        <div class="stat-card">
+          <span>LEVEL</span>
+          <strong id="level">1</strong>
+          <small>OPERATIVE</small>
+        </div>
+
+        <div class="stat-card">
+          <span>XP</span>
+          <strong id="xp">0</strong>
+          <small>/ 100 XP</small>
+        </div>
+
+        <div class="stat-card">
+          <span>MISSIONS</span>
+          <strong id="missions">0</strong>
+          <small>COMPLETED</small>
+        </div>
+
+        <div class="stat-card">
+          <span>RANK</span>
+          <strong id="rank">ROOKIE</strong>
+          <small>SECURITY</small>
+        </div>
+
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-label">
+          <span>TRAINING PROGRESS</span>
+          <span id="progressText">0%</span>
+        </div>
+
+        <div class="progress-bar">
+          <div id="progress"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="missions-section">
+
+      <div class="section-title">
+        <p>TRAINING DATABASE</p>
+        <h2>AVAILABLE MISSIONS</h2>
+      </div>
+
+      <div class="missions-grid">
+
+        <article class="mission-card" data-mission="password">
+
+          <div class="mission-number">01</div>
+
+          <div class="mission-icon">🔐</div>
+
+          <div class="mission-info">
+            <span class="difficulty easy">EASY</span>
+            <h3>Password Defender</h3>
+            <p>Identify which password is strongest.</p>
+          </div>
+
+          <button class="mission-btn">START</button>
+
+        </article>
+
+
+        <article class="mission-card" data-mission="phishing">
+
+          <div class="mission-number">02</div>
+
+          <div class="mission-icon">🎣</div>
+
+          <div class="mission-info">
+            <span class="difficulty medium">MEDIUM</span>
+            <h3>Phishing Hunter</h3>
+            <p>Identify the suspicious message.</p>
+          </div>
+
+          <button class="mission-btn">START</button>
+
+        </article>
+
+
+        <article class="mission-card" data-mission="network">
+
+          <div class="mission-number">03</div>
+
+          <div class="mission-icon">🌐</div>
+
+          <div class="mission-info">
+            <span class="difficulty medium">MEDIUM</span>
+            <h3>Network Analyst</h3>
+            <p>Analyze a simulated network report.</p>
+          </div>
+
+          <button class="mission-btn">START</button>
+
+        </article>
+
+
+        <article class="mission-card" data-mission="terminal">
+
+          <div class="mission-number">04</div>
+
+          <div class="mission-icon">⌨️</div>
+
+          <div class="mission-info">
+            <span class="difficulty hard">HARD</span>
+            <h3>Terminal Challenge</h3>
+            <p>Complete a safe command-line puzzle.</p>
+          </div>
+
+          <button class="mission-btn">START</button>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <section class="console-section">
+
+      <div class="section-title">
+        <p>SIMULATION CONSOLE</p>
+        <h2>SECURITY TERMINAL</h2>
+      </div>
+
+      <div class="console">
+
+        <div class="console-header">
+          <span>KNOX TERMINAL</span>
+          <button id="clearTerminal">CLEAR</button>
+        </div>
+
+        <div class="console-output" id="consoleOutput">
+          <p>&gt; KNOX Cyber Lab terminal initialized.</p>
+          <p>&gt; Type <b>help</b> to see available simulation commands.</p>
+          <p class="success">&gt; Training environment secure.</p>
+        </div>
+
+        <div class="console-input">
+          <span>knox@lab:~$</span>
+          <input
+            type="text"
+            id="commandInput"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Type a command..."
+          >
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- MISSION MODAL -->
+
+  <div class="modal" id="missionModal">
+
+    <div class="modal-box">
+
+      <button class="close-modal" id="closeModal">×</button>
+
+      <div class="modal-label">MISSION</div>
+
+      <h2 id="missionTitle">MISSION</h2>
+
+      <p id="missionDescription"></p>
+
+      <div id="missionContent"></div>
+
+      <div class="mission-result" id="missionResult"></div>
+
+    </div>
+
+  </div>
+
+
+  <footer>
+    <div>
+      <strong>KNOX CYBER LAB</strong>
+      <span>SAFE SECURITY TRAINING ENVIRONMENT</span>
+    </div>
+
+    <p>© 2026 KNOX THE GREAT</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+            </html>
